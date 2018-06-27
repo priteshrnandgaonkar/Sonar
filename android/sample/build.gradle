@@ -59,5 +59,7 @@ dependencies {
     testImplementation deps.lithoTesting
 
     implementation deps.okhttp3
-    implementation project(':android')
+    debugImplementation 'com.facebook.sonar:sonar:0.0.4'
+
+    //implementation project(':android')
 }

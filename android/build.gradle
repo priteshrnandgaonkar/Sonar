@@ -141,16 +141,16 @@ task finalizeEvent2(dependsOn: [finalizeEvent], type: Copy) {
 }
 
 task downloadOpenSSL(dependsOn: [], type: Download) {
-    src 'https://github.com/priteshrnandgaonkar/openssl-android/archive/1.0.0.tar.gz'
+    src 'https://github.com/priteshrnandgaonkar/boringssl/archive/1.0.tar.gz'
     onlyIfNewer true
     overwrite false
-    dest new File(downloadsDir, 'openssl-android-1.0.0.tar.gz');
+    dest new File(downloadsDir, 'boringssl-1.0.tar.gz');
 }
 
 task prepareOpenSSL(dependsOn: [downloadOpenSSL], type: Copy) {
     from tarTree(downloadOpenSSL.dest)
     from './third-party/OpenSSL/'
-    include 'openssl-android-1.0.0/**/*', 'libs/**/*'
+    include 'boringssl-1.0/**/*', 'libs/**/*'
     includeEmptyDirs = false
     into "$thirdPartyNdkDir/OpenSSL/"
 }
@@ -159,7 +159,7 @@ task finalizeOpenSSL(dependsOn: [prepareOpenSSL], type: Copy) {
     from './third-party/OpenSSL/'
     include 'build.gradle', 'ApplicationManifest.xml'
     includeEmptyDirs = false
-    into "$thirdPartyNdkDir/OpenSSL/openssl-android-1.0.0/"
+    into "$thirdPartyNdkDir/OpenSSL/"
 }
 
 task downloadRSocket(dependsOn: [], type: Download) {

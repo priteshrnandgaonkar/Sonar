@@ -32,5 +32,5 @@ project(':doubleconversion').projectDir = file('android/build/third-party-ndk/do
 project(':glog').projectDir = file('android/build/third-party-ndk/glog/')
 project(':folly').projectDir = file('android/build/third-party-ndk/folly/')
 project(':libevent').projectDir = file('android/build/third-party-ndk/LibEvent/')
-project(':openssl').projectDir = file('android/build/third-party-ndk/OpenSSL/openssl-android-1.0.0')
+project(':openssl').projectDir = file('android/build/third-party-ndk/OpenSSL/')
 project(':rsocket').projectDir = file('android/build/third-party-ndk/RSocket')

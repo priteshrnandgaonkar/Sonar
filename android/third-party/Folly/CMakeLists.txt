@@ -16,7 +16,7 @@ list(APPEND dir_list ${FOLLY_DIR}/memory/detail)
 
 set(BOOST_DIR ../boost/boost_1_63_0/)
 set(GLOG_DIR ../glog/)
-set(OPENSSL_DIR ../OpenSSL/openssl-android-1.0.0/)
+set(OPENSSL_DIR ../OpenSSL/boringssl-1.0/)
 set(LIBEVENT_DIR ../LibEvent/libevent-release-2.1.9/)
 set(DOUBLECONVERSION_DIR ../double-conversion/double-conversion-3.0.0/)
 
@@ -121,9 +121,9 @@ add_subdirectory(${GLOG_DIR} ${libglog_build_DIR})
 add_subdirectory(${DOUBLECONVERSION_DIR} ${doubleconversion_build_DIR})
 add_subdirectory(${LIBEVENT_DIR} ${libevent_build_DIR})
 target_include_directories(${PACKAGE_NAME} PRIVATE
-    ${OPENSSL_DIR}/jni/openssl-android/
-    ${OPENSSL_DIR}/jni/openssl-android/include
-    ${OPENSSL_DIR}/jni/openssl-android/include/openssl
+    ${OPENSSL_DIR}/
+    ${OPENSSL_DIR}/include
+    ${OPENSSL_DIR}/include/openssl
     ${BOOST_DIR}
     ${BOOST_DIR}/../
     ${GLOG_DIR}/../
@@ -137,4 +137,4 @@ find_path(OPENSSL_LIBRARY libssl.so HINTS ${OPENSSL_LINK_DIRECTORIES})
 
 install(TARGETS ${PACKAGE_NAME}  DESTINATION ./build/)
 
-target_link_libraries(${PACKAGE_NAME} glog double-conversion ${OPENSSL_LINK_DIRECTORIES}/libssl.so ${OPENSSL_LINK_DIRECTORIES}/libcrypto.so event event_extra event_core)
+target_link_libraries(${PACKAGE_NAME} glog ssl crypto event event_extra event_core)
