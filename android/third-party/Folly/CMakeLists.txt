@@ -113,13 +113,16 @@ set(build_DIR ${CMAKE_SOURCE_DIR}/build)
 set(libglog_build_DIR ${build_DIR}/libglog/${ANDROID_ABI})
 set(doubleconversion_build_DIR ${build_DIR}/doubleconversion/${ANDROID_ABI})
 set(libevent_build_DIR ${build_DIR}/libevent/${ANDROID_ABI})
+set(openssl_build_DIR ${build_DIR}/openssl/${ANDROID_ABI})
 
 
 file(MAKE_DIRECTORY ${build_DIR})
 
 add_subdirectory(${GLOG_DIR} ${libglog_build_DIR})
+add_subdirectory(${OPENSSL_DIR} ${openssl_build_DIR})
 add_subdirectory(${DOUBLECONVERSION_DIR} ${doubleconversion_build_DIR})
 add_subdirectory(${LIBEVENT_DIR} ${libevent_build_DIR})
+
 target_include_directories(${PACKAGE_NAME} PRIVATE
     ${OPENSSL_DIR}/
     ${OPENSSL_DIR}/include
