@@ -59,7 +59,7 @@ Pod::Spec.new do |spec|
   spec.subspec "SonarKitLayoutComponentKitSupport" do |ss|
     ss.dependency             'SonarKit/Core'
     ss.dependency             'Yoga', yoga_version
-    ss.dependency             'ComponentKit'
+    ss.dependency             'ComponentKit', '~> 0.23'
     ss.dependency             'SonarKit/SonarKitLayoutPlugin'
     ss.compiler_flags       = folly_compiler_flags
     ss.public_header_files = 'iOS/Plugins/SonarKitLayoutPlugin/SonarKitLayoutComponentKitSupport/SonarKitLayoutComponentKitSupport.h',
