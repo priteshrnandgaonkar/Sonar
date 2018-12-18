@@ -140,7 +140,20 @@ and install the dependencies by running `pod install`. When you open the Xcode w
 }
 @end
 ```
+### Swift
+For swift related projects you will have to add `-DFB_SONARKIT_ENABLED` in `OTHER_SWIFT_FLAGS`.
 
+```swift
+import FlipperKit
+
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
+	let client = FlipperClient.shared()
+	client?.add(MyFlipperPlugin())
+	client?.start()
+}
+
+```
 <div class="warning">
 
 - We haven't released the dependency to CocoaPods yet, here is the [issue](https://github.com/facebook/flipper/issues/132) by which you can track.
