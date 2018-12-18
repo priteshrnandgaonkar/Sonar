@@ -117,7 +117,8 @@ target 'MyApp' do
 end
 ```
 
-and install the dependencies by running `pod install`. When you open the Xcode workspace file for your app, you now can import and initialize Flipper in your AppDelegate.
+and install the dependencies by running `pod install`. Add `-DFB_SONARKIT_ENABLED=1` in compiler flag. When you open the Xcode workspace file for your app, you now can import and initialize Flipper in your AppDelegate.
+Also change the extension of AppDelegate from `.m` to `.mm`
 
 ```objective-c
 #import <FlipperKit/FlipperClient.h>
